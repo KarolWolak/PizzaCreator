@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza creator</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+
+<img th:src="@{/images/PizzaCreator.png}"/>
+
+<h1>Design your pizza</h1>
+<form method="POST" th:object="${pizza}">
+
+
+
+    <h3>Choose size ($8 / $12): <span class="validationError"
+                           th:if="${#fields.hasErrors('pizzaSize')}"
+                           th:errors="*{pizzaSize}">Error</span></h3>
+
+    <input type="radio" th:field="*{pizzaSize}" value="SMALL" name="size"/>
+    Small ($8)
+    <br/>
+    <input type="radio" th:field="*{pizzaSize}" value="LARGE" name="size"/>
+    Large ($12)
+    </div>
+    <br/>
+
+
+
+    <h3>Choose meat ($2): <span class="validationError"
+                           th:if="${#fields.hasErrors('ingredients')}"
+                           th:errors="*{ingredients}"><br/>Error</span></h3>
+    <div th:each="ingredient:${meat}">
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <span th:text="${ingredient.name}">INGREDIENT</span>
+    </div>
+
+    <h3>Choose veggies ($1)</h3>
+    <div th:each="ingredient:${veggie}">
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <span th:text="${ingredient.name}">INGREDIENT</span>
+    </div>
+
+    <h3>Choose cheese ($1.5):</h3>
+    <div th:each="ingredient:${cheese}">
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <span th:text="${ingredient.name}">INGREDIENT</span>
+    </div>
+
+    <h3>Choose sauce ($0.5):</h3>
+    <div th:each="ingredient:${sauce}">
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <span th:text="${ingredient.name}">INGREDIENT</span>
+    </div>
+
+    <br/>
+
+
+
+    Pizza name: <input type="text" th:field="*{name}"/>
+    <input type="submit" value="Add"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}">ERROR</span>
+
+
+
+</form>
+
+
+</div>
+
+</body>
+</html>

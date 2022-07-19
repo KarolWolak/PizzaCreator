@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Order completed</title>
+</head>
+<body>
+
+<a th:href="@{/}">
+<img th:src="@{/images/PizzaCreator.png}"/>
+</a>
+<h3>Order placed successfully </h3>
+
+Estimated delivery time: <span th:text="${pizzaOrder.getDeliveryTime()}">data</span> <br/><br/>
+
+<h3>Order details:</h3>
+
+<ul>
+    <li th:each="pizza:${pizzaOrder.pizzas}">
+        $<span th:text="${pizza.price}">PIZZA</span>
+        <span th:text="${pizza.name}">PIZZA</span>
+        <ul>
+            <li th:each="ingredient:${pizza.ingredients}">
+                <span th:text="${ingredient.name}">INGREDIENT NAME</span>
+            </li>
+        </ul>
+        <br/>
+    </li>
+</ul>
+
+<b>In total:
+    $<span th:text="${pizzaOrder.totalPrice}">PIZZA</span></b>
+<br/><br/>
+
+
+<h3>Address details:</h3>
+
+Name: <span th:text="${pizzaOrder.clientName}">data</span><br/>
+
+State: <span th:text="${pizzaOrder.deliveryState}">data</span><br/>
+
+City: <span th:text="${pizzaOrder.deliveryCity}">data</span><br/>
+
+Street: <span th:text="${pizzaOrder.deliveryStreet}">data</span><br/>
+
+Zip Code: <span th:text="${pizzaOrder.deliveryZipCode}">data</span><br/>
+
+Building number: <span th:text="${pizzaOrder.buildingNumber}">data</span><br/>
+
+
+</body>
+</html>
