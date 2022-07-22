@@ -15,8 +15,9 @@
 <h3>Your order:</h3>
 <ul>
     <li th:each="pizza:${pizzaOrder.pizzas}">
-        $<span th:text="${pizza.price}">PIZZA</span>
-        <span th:text="${pizza.name}">PIZZA</span>
+        <b> $<span th:text="${pizza.price}">PIZZA PRICE</span>
+            <span th:text="${pizza.pizzaSize}">PIZZA SIZE</span>
+            <span th:text="${pizza.name}">PIZZA NAME</span> </b>
         <ul>
             <li th:each="ingredient:${pizza.ingredients}">
                 <span th:text="${ingredient.name}">INGREDIENT NAME</span>

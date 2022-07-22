@@ -18,6 +18,7 @@ public class Pizza {
     private Long id;
 
     @NotNull(message = "You need to choose a size")
+    @Enumerated(EnumType.STRING)
     private PizzaSize pizzaSize;
 
     private double price;
