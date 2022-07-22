@@ -13,10 +13,9 @@
 <form method="POST" th:object="${pizza}">
 
 
-
     <h3>Choose size ($8 / $12): <span class="validationError"
-                           th:if="${#fields.hasErrors('pizzaSize')}"
-                           th:errors="*{pizzaSize}">Error</span></h3>
+                                      th:if="${#fields.hasErrors('pizzaSize')}"
+                                      th:errors="*{pizzaSize}">Error</span></h3>
 
     <input type="radio" th:field="*{pizzaSize}" value="SMALL" name="size"/>
     Small ($8)
@@ -27,10 +26,9 @@
     <br/>
 
 
-
     <h3>Choose meat ($2): <span class="validationError"
-                           th:if="${#fields.hasErrors('ingredients')}"
-                           th:errors="*{ingredients}"><br/>Error</span></h3>
+                                th:if="${#fields.hasErrors('ingredients')}"
+                                th:errors="*{ingredients}"><br/>Error</span></h3>
     <div th:each="ingredient:${meat}">
         <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -57,13 +55,11 @@
     <br/>
 
 
-
     Pizza name: <input type="text" th:field="*{name}"/>
     <input type="submit" value="Add"/>
     <span class="validationError"
           th:if="${#fields.hasErrors('name')}"
           th:errors="*{name}">ERROR</span>
-
 
 
 </form>

@@ -52,7 +52,7 @@ public class Pizza {
 
         private double price;
 
-        private double getPrice(){
+        private double getPrice() {
             return price;
         }
 

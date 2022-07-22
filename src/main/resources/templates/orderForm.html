@@ -17,10 +17,16 @@
     <li th:each="pizza:${pizzaOrder.pizzas}">
         $<span th:text="${pizza.price}">PIZZA</span>
         <span th:text="${pizza.name}">PIZZA</span>
+        <ul>
+            <li th:each="ingredient:${pizza.ingredients}">
+                <span th:text="${ingredient.name}">INGREDIENT NAME</span>
+            </li>
+        </ul>
+        <br/>
     </li>
 </ul>
-    <b>In total:
-        $<span th:text="${pizzaOrder.totalPrice}">PIZZA</span></b>
+<b>In total:
+    $<span th:text="${pizzaOrder.totalPrice}">PIZZA</span></b>
 
 <br/><br/>
 
@@ -28,7 +34,7 @@
 <br/>
 <br/>
 
-<form method="POST" th:action="@{/orders}" th:object="${pizzaOrder}" >
+<form method="POST" th:action="@{/orders}" th:object="${pizzaOrder}">
 
     <h3>Delivery details</h3>
     Full name: <input type="text" th:field="*{clientName}"/>
@@ -36,7 +42,8 @@
     <br/><br/>
 
     Delivery state: <input type="text" th:field="*{deliveryState}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('deliveryState')}" th:errors="*{deliveryState}">ERROR</span>
+    <span class="validationError" th:if="${#fields.hasErrors('deliveryState')}"
+          th:errors="*{deliveryState}">ERROR</span>
     <br/><br/>
 
     Delivery city: <input type="text" th:field="*{deliveryCity}"/>
@@ -44,17 +51,19 @@
     <br/><br/>
 
 
-
     Delivery zip code: <input type="text" th:field="*{deliveryZipCode}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('deliveryZipCode')}" th:errors="*{deliveryZipCode}">ERROR</span>
+    <span class="validationError" th:if="${#fields.hasErrors('deliveryZipCode')}"
+          th:errors="*{deliveryZipCode}">ERROR</span>
     <br/><br/>
 
     Delivery street: <input type="text" th:field="*{deliveryStreet}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('deliveryStreet')}" th:errors="*{deliveryStreet}">ERROR</span>
+    <span class="validationError" th:if="${#fields.hasErrors('deliveryStreet')}"
+          th:errors="*{deliveryStreet}">ERROR</span>
     <br/><br/>
 
     Building number: <input type="text" th:field="*{buildingNumber}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('buildingNumber')}" th:errors="*{buildingNumber}">ERROR</span>
+    <span class="validationError" th:if="${#fields.hasErrors('buildingNumber')}"
+          th:errors="*{buildingNumber}">ERROR</span>
     <br/><br/>
 
     <h3>Payment details</h3>

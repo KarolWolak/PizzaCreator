@@ -21,23 +21,21 @@ public class PizzaOrderController {
     private OrderRepository orderRepository;
 
     @Autowired
-    public PizzaOrderController(OrderRepository orderRepository){
-        this.orderRepository=orderRepository;
+    public PizzaOrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
     }
 
     @GetMapping("/current")
-    public String orderForm(){
+    public String orderForm() {
         return "orderForm";
     }
 
     @PostMapping
-    public String orderCompleted(@Valid PizzaOrder pizzaOrder, Errors errors, SessionStatus status){
+    public String orderCompleted(@Valid PizzaOrder pizzaOrder, Errors errors, SessionStatus status) {
 
-        if (errors.hasErrors()){
+        if (errors.hasErrors()) {
             return "orderForm";
-        }
-
-        else {
+        } else {
             orderRepository.save(pizzaOrder);
             status.setComplete();
             return "orderCompletedSummary";

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
 
     @Id
@@ -20,8 +20,8 @@ public class Ingredient {
     private Type type;
     private Double price;
 
-    public enum Type{
-        CHEESE,VEGGIE,MEAT,SAUCE;
+    public enum Type {
+        CHEESE, VEGGIE, MEAT, SAUCE;
     }
 
 }
