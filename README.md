@@ -13,4 +13,5 @@ Technologies and features used during project:
 - MVC with Thymeleaf
 - Java
 - HTML
+- H2 Database
 - form's fields validation
