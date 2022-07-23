@@ -30,25 +30,25 @@
                                 th:if="${#fields.hasErrors('ingredients')}"
                                 th:errors="*{ingredients}"><br/>Error</span></h3>
     <div th:each="ingredient:${meat}">
-        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.name}"/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
     </div>
 
     <h3>Choose veggies ($1)</h3>
     <div th:each="ingredient:${veggie}">
-        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.name}"/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
     </div>
 
     <h3>Choose cheese ($1.5):</h3>
     <div th:each="ingredient:${cheese}">
-        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.name}"/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
     </div>
 
     <h3>Choose sauce ($0.5):</h3>
     <div th:each="ingredient:${sauce}">
-        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+        <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.name}"/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
     </div>
 

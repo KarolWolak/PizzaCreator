@@ -17,7 +17,6 @@ import javax.persistence.Id;
 public class Ingredient {
 
     @Id
-    private String id;
     private String name;
 
     @Enumerated(EnumType.STRING)
