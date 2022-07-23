@@ -11,4 +11,6 @@ Technologies and features used during project:
 - Spring/Spring Boot
 - JPA Hibernate
 - MVC with Thymeleaf
+- Java
+- HTML
 - form's fields validation
