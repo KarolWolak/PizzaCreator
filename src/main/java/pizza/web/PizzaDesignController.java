@@ -25,41 +25,41 @@ public class PizzaDesignController {
     private IngredientRepository ingredientRepository;
 
     @Autowired
-    public PizzaDesignController(IngredientRepository ingredientRepository){
-        this.ingredientRepository=ingredientRepository;
+    public PizzaDesignController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
     }
 
     @ModelAttribute
-    public void addIngredientsToModel(Model model){
+    public void addIngredientsToModel(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
-        ingredientRepository.findAll().forEach(i->ingredients.add(i));
+        ingredientRepository.findAll().forEach(i -> ingredients.add(i));
 
         Type[] types = Ingredient.Type.values();
 
-        for(Type type:types){
+        for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
-                    filterByType(ingredients,type));
+                    filterByType(ingredients, type));
         }
     }
 
-    @ModelAttribute(name="pizzaOrder")
-    public PizzaOrder pizzaOrder(){
+    @ModelAttribute(name = "pizzaOrder")
+    public PizzaOrder pizzaOrder() {
         return new PizzaOrder();
     }
 
-    @ModelAttribute(name="pizza")
-    public Pizza pizza(){
+    @ModelAttribute(name = "pizza")
+    public Pizza pizza() {
         return new Pizza();
     }
 
     @GetMapping
-    public String showDesignForm(){
+    public String showDesignForm() {
         return "designForm";
     }
 
     @PostMapping
-    public String addPizza(@ModelAttribute PizzaOrder pizzaOrder, @Valid Pizza pizza, Errors errors){
-        if (errors.hasErrors()){
+    public String addPizza(@ModelAttribute PizzaOrder pizzaOrder, @Valid Pizza pizza, Errors errors) {
+        if (errors.hasErrors()) {
             return "designForm";
         }
 
@@ -70,9 +70,9 @@ public class PizzaDesignController {
     }
 
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type){
+    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
         return ingredients.stream()
-                .filter(x->x.getType().equals(type))
+                .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
 

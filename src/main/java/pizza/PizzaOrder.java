@@ -54,8 +54,7 @@ public class PizzaOrder {
     @Pattern(regexp = "(0[1-9]||1[0-2])/([2-9][0-9])", message = "Please enter valid format: MM/YY")
     private String CCExpiration;
 
-    @Size(min = 3, message = "Invalid CVV")
-    @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
+    @Pattern(regexp = "\\d{3}", message = "Invalid CVV")
     private String CCCVV;
 
     private double totalPrice = 0;
