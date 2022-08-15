@@ -3,6 +3,7 @@ package pizza;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -25,11 +26,10 @@ public class Pizza {
 
     private Date createdAt = new Date();
 
-    @NotNull
-    @Size(min = 1, message = "Name is required")
+    @NotEmpty(message = "Name is required")
     private String name;
 
-    @Size(min = 1, message = "You need to choose at least 1 ingredient")
+    @NotEmpty(message = "You need to choose at least 1 ingredient")
     @ManyToMany()
     private List<Ingredient> ingredients = new ArrayList<>();
 
