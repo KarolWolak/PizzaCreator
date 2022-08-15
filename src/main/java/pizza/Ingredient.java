@@ -1,9 +1,7 @@
 package pizza;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,15 +15,15 @@ import javax.persistence.Id;
 public class Ingredient {
 
     @Id
-    private String name;
+    private final String name;
 
     @Enumerated(EnumType.STRING)
-    private Type type;
+    private final Type type;
 
     public enum Type {
         CHEESE(1.5), VEGGIE(1), MEAT(2), SAUCE(0.5);
 
-        private double price;
+        private final double price;
 
         private Type(double price){
             this.price=price;

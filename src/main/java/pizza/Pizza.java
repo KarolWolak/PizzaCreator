@@ -24,7 +24,7 @@ public class Pizza {
 
     private double price;
 
-    private Date createdAt = new Date();
+    private final Date createdAt = new Date();
 
     @NotEmpty(message = "Name is required")
     private String name;
@@ -51,7 +51,7 @@ public class Pizza {
 
         SMALL(8), LARGE(12);
 
-        private double price;
+        private final double price;
 
         private double getPrice() {
             return price;

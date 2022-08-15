@@ -17,18 +17,16 @@ import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class PizzaOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Calendar placedAt = Calendar.getInstance();
+    private final Calendar placedAt = Calendar.getInstance();
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Pizza> pizzas = new ArrayList<>();
+    private final List<Pizza> pizzas = new ArrayList<>();
 
     @NotBlank(message = "This field can not be empty")
     private String deliveryCity;
