@@ -18,12 +18,9 @@ import javax.validation.Valid;
 @SessionAttributes("pizzaOrder")
 public class PizzaOrderController {
 
+    @Autowired
     private OrderRepository orderRepository;
 
-    @Autowired
-    public PizzaOrderController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
 
     @GetMapping("/current")
     public String orderForm() {

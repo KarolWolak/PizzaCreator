@@ -22,12 +22,10 @@ import java.util.stream.Collectors;
 @SessionAttributes("pizzaOrder")
 public class PizzaDesignController {
 
+    @Autowired
     private IngredientRepository ingredientRepository;
 
-    @Autowired
-    public PizzaDesignController(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
-    }
+
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
