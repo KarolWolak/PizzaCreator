@@ -21,14 +21,14 @@ public class PizzaCreatorApplication {
 
             @Override
             public void run(String... args) throws Exception {
-                ingredientRepository.save(new Ingredient("Sausage", Type.MEAT, 2d));
-                ingredientRepository.save(new Ingredient("Chicken", Type.MEAT, 2d));
-                ingredientRepository.save(new Ingredient("Tomato", Type.VEGGIE, 1d));
-                ingredientRepository.save(new Ingredient("Corn", Type.VEGGIE, 1d));
-                ingredientRepository.save(new Ingredient("Salsa sauce", Type.SAUCE, 0.5));
-                ingredientRepository.save(new Ingredient("Spicy sauce", Type.SAUCE, 0.5));
-                ingredientRepository.save(new Ingredient("Mozzarella cheese", Type.CHEESE, 1.5));
-                ingredientRepository.save(new Ingredient("Cheddar cheese", Type.CHEESE, 1.5));
+                ingredientRepository.save(new Ingredient("Sausage", Type.MEAT));
+                ingredientRepository.save(new Ingredient("Chicken", Type.MEAT));
+                ingredientRepository.save(new Ingredient("Tomato", Type.VEGGIE));
+                ingredientRepository.save(new Ingredient("Corn", Type.VEGGIE));
+                ingredientRepository.save(new Ingredient("Salsa sauce", Type.SAUCE));
+                ingredientRepository.save(new Ingredient("Spicy sauce", Type.SAUCE));
+                ingredientRepository.save(new Ingredient("Mozzarella cheese", Type.CHEESE));
+                ingredientRepository.save(new Ingredient("Cheddar cheese", Type.CHEESE));
             }
 
         };

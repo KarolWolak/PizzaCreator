@@ -39,7 +39,7 @@ public class Pizza {
         double totalPrice = getPizzaSize().getPrice();
 
         for (Ingredient ing : ingredients) {
-            totalPrice += ing.getPrice();
+            totalPrice += ing.getType().getPrice();
         }
 
         this.price = totalPrice;

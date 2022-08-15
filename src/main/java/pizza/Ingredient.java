@@ -21,10 +21,19 @@ public class Ingredient {
 
     @Enumerated(EnumType.STRING)
     private Type type;
-    private Double price;
 
     public enum Type {
-        CHEESE, VEGGIE, MEAT, SAUCE;
+        CHEESE(1.5), VEGGIE(1), MEAT(2), SAUCE(0.5);
+
+        private double price;
+
+        private Type(double price){
+            this.price=price;
+        }
+
+        public double getPrice(){
+            return price;
+        }
     }
 
 }
